@@ -281,8 +281,8 @@ export default function Home() {
         <SnowParticles quantity={80} />
       </div>
 
-      <section id="home" className="relative flex min-h-screen w-full flex-col bg-gradient-to-br from-black via-[#0a0a0f] to-black overflow-hidden z-10 lg:h-screen lg:flex-row">
-        <div className="relative flex h-[42vh] min-h-[220px] w-full items-center justify-center overflow-hidden lg:h-full lg:flex-1">
+      <section id="home" className="hero-section relative flex min-h-screen w-full flex-col bg-gradient-to-br from-black via-[#0a0a0f] to-black overflow-hidden z-10 lg:h-screen lg:flex-row">
+        <div className="hero-portrait relative flex h-[42vh] min-h-[220px] w-full items-center justify-center overflow-hidden lg:h-full lg:flex-1">
           <video
             className="absolute inset-0 h-full w-full object-cover"
             autoPlay
@@ -342,33 +342,33 @@ export default function Home() {
           <div className="absolute right-0 top-[10%] bottom-[10%] w-px bg-gradient-to-b from-transparent via-cyan-300/25 to-transparent" />
         </div>
 
-        <div className="relative flex min-h-[430px] w-full flex-1 items-center justify-center p-6 lg:p-[60px]">
-          <div className="relative z-10 max-w-[520px] translate-y-0 lg:-translate-y-[70px]">
-            <p className="mb-6 inline-flex rounded-[5px] border border-cyan-300/35 px-4 py-2 text-[13px] font-mono font-medium tracking-[0.16em] text-cyan-200/65">
+        <div className="hero-copy-wrap relative flex min-h-[430px] w-full flex-1 items-center justify-center p-6 lg:p-[60px]">
+          <div className="hero-copy relative z-10 max-w-[520px] translate-y-0 lg:-translate-y-[70px]">
+            <p className="hero-badge mb-6 inline-flex min-h-[44px] items-center rounded-[5px] border border-cyan-300/35 px-4 py-2 text-[13px] font-mono font-medium tracking-[0.16em] text-cyan-200/65">
               IQOO HACKATHON 2026
             </p>
 
-            <h1 className="text-[clamp(48px,12vw,92px)] font-normal tracking-[5px] leading-none mb-8 text-white uppercase font-space lg:tracking-[9px]">
+            <h1 className="hero-title text-[clamp(48px,12vw,92px)] font-normal tracking-[5px] leading-none mb-8 text-white uppercase font-space lg:tracking-[9px]">
               S.H.A.D.O.W
             </h1>
 
-            <p className="text-[25px] font-light text-amber-50/55 mb-3 tracking-[0.3px]">
+            <p className="hero-subheading text-[25px] font-light text-amber-50/55 mb-3 tracking-[0.3px]">
               AI-assisted media credibility analysis
             </p>
 
-            <div className="mb-[72px] flex items-center gap-3 text-[17px] font-light tracking-[0.08em] text-white/35">
+            <div className="hero-status mb-[72px] flex items-center gap-3 text-[17px] font-light tracking-[0.08em] text-white/35">
               <span className="system-status-dot" />
               <span>9 Detection Layers Online</span>
             </div>
 
-            <div className="flex gap-5">
+            <div className="hero-action flex gap-5">
               <div className="flex flex-col items-start gap-4">
-                <p className="text-[20px] font-light tracking-[0.04em] text-white/40">
+                <p className="hero-support text-[20px] font-light tracking-[0.04em] text-white/40">
                   See how deepfakes are exposed, layer by layer.
                 </p>
               <button
                 onClick={() => router.push('/learn')}
-                className="group relative px-12 py-4 text-[15px] font-normal tracking-[1px] uppercase border border-cyan-300/25 bg-transparent text-white/70 cursor-pointer overflow-hidden transition-colors duration-300 hover:text-black hover:border-cyan-300 hover:-translate-y-0.5 will-change-transform"
+                className="hero-learn-button group relative min-h-[44px] px-12 py-4 text-[15px] font-normal tracking-[1px] uppercase border border-cyan-300/25 bg-transparent text-white/70 cursor-pointer overflow-hidden transition-colors duration-300 hover:text-black hover:border-cyan-300 hover:-translate-y-0.5 will-change-transform"
               >
                 <span className="relative z-10">Learn</span>
                 <span className="absolute inset-0 -translate-x-full bg-cyan-300 transition-transform duration-500 ease-out group-hover:translate-x-0" />
@@ -378,13 +378,13 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="pointer-events-none absolute bottom-[32px] left-[32px] z-20 whitespace-nowrap text-[10px] font-light tracking-[0.08em] text-white/35">
+        <div className="hero-stat pointer-events-none absolute bottom-[32px] left-[32px] z-20 whitespace-nowrap text-[10px] font-light tracking-[0.08em] text-white/35">
           9 Forensic Layers · Real-time Analysis · Explainable AI
         </div>
-        <div className="hero-watermark pointer-events-none absolute bottom-[5%] left-[57%] right-[3%] z-[1] text-right" aria-hidden="true">
+        <div className="hero-watermark hidden pointer-events-none absolute bottom-[5%] left-[57%] right-[3%] z-[1] text-right md:block" aria-hidden="true">
           S.H.A.D.O.W.
         </div>
-        <div className="scroll-cue pointer-events-none absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-2 text-[9px] font-mono uppercase tracking-[0.16em] text-white/35">
+        <div className="scroll-cue hidden pointer-events-none absolute bottom-6 left-1/2 z-20 -translate-x-1/2 flex-col items-center gap-2 text-[9px] font-mono uppercase tracking-[0.16em] text-white/35 md:flex">
           <span>Scroll to explore</span>
           <span className="scroll-cue-arrow" aria-hidden="true">↓</span>
         </div>
@@ -583,6 +583,110 @@ export default function Home() {
               right: 6%;
               bottom: 12%;
               font-size: clamp(22px, 7vw, 48px);
+            }
+          }
+
+          @media (max-width: 767px) {
+            .hero-section {
+              min-height: 0;
+              overflow: hidden;
+              padding-bottom: 64px;
+            }
+
+            .hero-portrait {
+              height: min(52vh, 440px);
+              min-height: 240px;
+              flex: none;
+            }
+
+            .hero-portrait::after {
+              content: '';
+              position: absolute;
+              inset: 0;
+              pointer-events: none;
+              background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.18));
+            }
+
+            .hero-copy-wrap {
+              min-height: 0;
+              padding: 40px 24px 48px;
+              align-items: flex-start;
+            }
+
+            .hero-copy {
+              width: min(100%, 520px);
+              transform: none;
+              text-align: center;
+            }
+
+            .hero-badge {
+              margin-bottom: 24px;
+              padding: 10px 14px;
+              font-size: 10px;
+              letter-spacing: 0.11em;
+            }
+
+            .hero-title {
+              margin-bottom: 24px;
+              font-size: clamp(34px, 12vw, 48px);
+              letter-spacing: 3px;
+              line-height: 1.05;
+              white-space: nowrap;
+            }
+
+            .hero-subheading {
+              margin-bottom: 10px;
+              font-size: clamp(17px, 5vw, 21px);
+              line-height: 1.35;
+            }
+
+            .hero-status {
+              justify-content: center;
+              margin-bottom: 40px;
+              font-size: clamp(13px, 4vw, 16px);
+              line-height: 1.4;
+            }
+
+            .hero-action {
+              justify-content: center;
+            }
+
+            .hero-action > div {
+              align-items: center;
+              gap: 16px;
+            }
+
+            .hero-support {
+              max-width: 320px;
+              font-size: clamp(15px, 4.5vw, 18px);
+              line-height: 1.5;
+            }
+
+            .hero-learn-button {
+              min-width: 132px;
+              min-height: 44px;
+              padding: 12px 28px;
+            }
+
+            .hero-stat {
+              position: relative;
+              inset: auto;
+              margin: 0 24px;
+              max-width: calc(100% - 48px);
+              white-space: normal;
+              text-align: center;
+              line-height: 1.5;
+              font-size: 10px;
+            }
+
+            .hero-watermark,
+            .scroll-cue {
+              display: none !important;
+              position: static;
+            }
+
+            #features {
+              padding-top: 80px;
             }
           }
         `}</style>

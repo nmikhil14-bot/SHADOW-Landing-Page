@@ -64,6 +64,149 @@ export default function LearnPage() {
             transform: translateY(0);
           }
         }
+
+        @media (max-width: 767px) {
+          html {
+            scroll-snap-type: none;
+          }
+
+          .snap-section {
+            width: 100%;
+            min-height: 100svh;
+            height: auto;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            overflow: hidden;
+            align-content: start;
+          }
+
+          .snap-section > div:not([class*='fixed']) {
+            width: 100%;
+            min-width: 0;
+            grid-column: 1;
+            grid-row: auto;
+            flex: none;
+          }
+
+          .snap-section > div[class*='p-12'],
+          .snap-section > div[class*='p-[60px]'] {
+            padding: 32px 24px;
+          }
+
+          .snap-section > div[class*='p-12'] {
+            min-height: min(48svh, 400px);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent);
+          }
+
+          .snap-section > div[class*='p-12'] img,
+          .snap-section > div[class*='p-12'] video {
+            width: 100%;
+            height: min(42svh, 340px);
+            max-height: 340px;
+            border-radius: 12px;
+          }
+
+          .snap-section > div[class*='p-[60px]'] {
+            min-height: 0;
+            align-items: flex-start;
+            padding-top: 36px;
+            padding-bottom: 56px;
+          }
+
+          .snap-section > div[class*='p-[60px]'] > div {
+            width: 100%;
+            max-width: none;
+            transform: none;
+            text-align: left;
+          }
+
+          .snap-section h1,
+          .snap-section h2 {
+            max-width: 100%;
+            overflow-wrap: anywhere;
+            font-size: clamp(30px, 9vw, 42px);
+            line-height: 1.12;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+          }
+
+          .snap-section p {
+            font-size: 16px;
+            line-height: 1.65;
+          }
+
+          .snap-section p[class*='text-cyan'] {
+            font-size: 12px;
+            line-height: 1.4;
+          }
+
+          .snap-section p[class*='border-l'] {
+            font-size: 14px;
+            line-height: 1.6;
+          }
+
+          .snap-section:first-of-type {
+            min-height: 0;
+          }
+
+          .snap-section:first-of-type > div:nth-child(2) {
+            min-height: min(52svh, 420px);
+            padding: 24px;
+            background: transparent;
+          }
+
+          .snap-section:first-of-type > div:nth-child(2) video {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+          }
+
+          .snap-section:first-of-type > div:nth-child(3) {
+            padding: 40px 24px 56px;
+          }
+
+          .snap-section:first-of-type h1 {
+            font-size: clamp(36px, 11vw, 50px);
+            letter-spacing: 2px;
+            white-space: normal;
+          }
+
+          .snap-section:first-of-type p {
+            line-height: 1.55;
+          }
+
+          .snap-section:last-of-type {
+            min-height: 100svh;
+            padding: 64px 24px;
+          }
+
+          .snap-section:last-of-type > div[class*='fixed'] {
+            display: none;
+          }
+
+          .snap-section:last-of-type > div:last-child {
+            width: 100%;
+            padding: 0;
+          }
+
+          .snap-section > div[class*='fixed'] {
+            display: none;
+          }
+
+          .snap-section:last-of-type h2 {
+            font-size: clamp(32px, 10vw, 48px);
+            letter-spacing: 1px;
+          }
+
+          .snap-section button {
+            min-height: 44px;
+            padding: 12px 24px;
+          }
+
+          .snap-section [class*='shadow-2xl'] {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+          }
+        }
       `}</style>
 
       <section
@@ -155,6 +298,18 @@ export default function LearnPage() {
         ref={(el) => { sectionsRef.current[2] = el; }}
         className="snap-section flex h-screen w-screen relative bg-black overflow-hidden"
       >
+        <div className="flex-1 relative overflow-hidden flex items-center justify-center p-12 z-50">
+          <div className="absolute left-0 top-[10%] bottom-[10%] w-px bg-gradient-to-b from-transparent via-white/10 to-transparent" />
+          <video 
+            src="/images/section2.mp4"
+            className="w-[75%] h-[75%] object-cover rounded-2xl shadow-2xl z-50"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+        </div>
+
         <div className="flex-1 flex items-center justify-center p-[60px] relative">
           <div className="max-w-[520px] relative z-10 section-content">
             <h2 className="text-[48px] font-normal tracking-[4px] leading-tight mb-8 text-white">
@@ -178,18 +333,6 @@ export default function LearnPage() {
               </p>
             </div>
           </div>
-        </div>
-
-        <div className="flex-1 relative overflow-hidden flex items-center justify-center p-12 z-50">
-          <div className="absolute left-0 top-[10%] bottom-[10%] w-px bg-gradient-to-b from-transparent via-white/10 to-transparent" />
-          <video 
-            src="/images/section2.mp4"
-            className="w-[75%] h-[75%] object-cover rounded-2xl shadow-2xl z-50"
-            autoPlay
-            muted
-            loop
-            playsInline
-          />
         </div>
       </section>
 
@@ -239,6 +382,15 @@ export default function LearnPage() {
         ref={(el) => { sectionsRef.current[4] = el; }}
         className="snap-section flex h-screen w-screen relative bg-black overflow-hidden"
       >
+        <div className="flex-1 relative overflow-hidden flex items-center justify-center p-12 z-50">
+          <div className="absolute left-0 top-[10%] bottom-[10%] w-px bg-gradient-to-b from-transparent via-white/10 to-transparent" />
+          <img 
+            src="/images/section4.png"
+            alt="Lighting Analysis"
+            className="w-[75%] h-[75%] object-cover rounded-2xl shadow-2xl z-50"
+          />
+        </div>
+
         <div className="flex-1 flex items-center justify-center p-[60px] relative">
           <div className="max-w-[520px] relative z-10 section-content">
             <h2 className="text-[48px] font-normal tracking-[4px] leading-tight mb-8 text-white">
@@ -262,15 +414,6 @@ export default function LearnPage() {
               </p>
             </div>
           </div>
-        </div>
-
-        <div className="flex-1 relative overflow-hidden flex items-center justify-center p-12 z-50">
-          <div className="absolute left-0 top-[10%] bottom-[10%] w-px bg-gradient-to-b from-transparent via-white/10 to-transparent" />
-          <img 
-            src="/images/section4.png"
-            alt="Lighting Analysis"
-            className="w-[75%] h-[75%] object-cover rounded-2xl shadow-2xl z-50"
-          />
         </div>
       </section>
 
@@ -320,6 +463,15 @@ export default function LearnPage() {
         ref={(el) => { sectionsRef.current[6] = el; }}
         className="snap-section flex h-screen w-screen relative bg-black overflow-hidden"
       >
+        <div className="flex-1 relative overflow-hidden flex items-center justify-center p-12 z-50">
+          <div className="absolute left-0 top-[10%] bottom-[10%] w-px bg-gradient-to-b from-transparent via-white/10 to-transparent" />
+          <img 
+            src="/images/section6.jpg"
+            alt="Digital Artifacts"
+            className="w-[75%] h-[75%] object-cover rounded-2xl shadow-2xl z-50"
+          />
+        </div>
+
         <div className="flex-1 flex items-center justify-center p-[60px] relative">
           <div className="max-w-[520px] relative z-10 section-content">
             <h2 className="text-[48px] font-normal tracking-[4px] leading-tight mb-8 text-white">
@@ -343,15 +495,6 @@ export default function LearnPage() {
               </p>
             </div>
           </div>
-        </div>
-
-        <div className="flex-1 relative overflow-hidden flex items-center justify-center p-12 z-50">
-          <div className="absolute left-0 top-[10%] bottom-[10%] w-px bg-gradient-to-b from-transparent via-white/10 to-transparent" />
-          <img 
-            src="/images/section6.jpg"
-            alt="Digital Artifacts"
-            className="w-[75%] h-[75%] object-cover rounded-2xl shadow-2xl z-50"
-          />
         </div>
       </section>
 
